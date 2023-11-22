@@ -13,7 +13,7 @@ fun calculatePrice(typeCard: String = "VK Pay", amountPreviousTransfers: Int = 0
 
     return when (typeCard) {
 
-        "Mastercard", "Maestro" -> if (amountTransfer < 75_000) "Комиссия составит 0 рублей" else "Комиссия составит ${total + 20} рублей"
+        "Mastercard", "Maestro" -> if (amountTransfer + amountPreviousTransfers < 75_000) "Комиссия составит 0 рублей" else "Комиссия составит ${total + 20} рублей"
 
         "Visa", "Мир" -> if (total < 35) "Комиссия составит 35 рублей" else "Комиссия составит $total рублей"
 
